@@ -19,8 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 @Service
 public class TelegramBotUpdatesListener implements UpdatesListener {
@@ -70,7 +69,6 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
 
    private Object parseMessage(Long chatId, String messageText) throws ParseException {
        notification_task returnObject = new notification_task();
-
        String dateTimeStr = messageText.substring(0,16);
        if(dateTimeStr.matches("[0-9\\.\\:\\s]{16}")){
            returnObject.setChatId(chatId);
@@ -104,6 +102,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
         for(notification_task item : sendList){
             if(item.getDateSend()!=null){
                 if(item.getDateSend().equals(dateTime)){
+                    System.out.println("find");
                     sendGreetings(item.getChatId(),item.getMessage());
                 }
             }
@@ -111,10 +110,8 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     }
 
     private LocalDateTime dateFormat(String dateString){
-
         LocalDateTime dateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"));
         return dateTime;
-
     }
 
 }

@@ -19,19 +19,6 @@ public class notification_task {
     public notification_task(){
 
     }
-    public notification_task(long id,long chatId,String message,LocalDateTime dateSend){
-        this.id = id;
-        this.chatId = chatId;
-        this.message = message;
-        this.dateSend = dateSend;
-    }
-
-    public notification_task(notification_task obj){
-        this.id = obj.id;
-        this.chatId = obj.chatId;
-        this.message = obj.message;
-        this.dateSend = obj.dateSend;
-    }
 
     public long getId() {
         return id;
