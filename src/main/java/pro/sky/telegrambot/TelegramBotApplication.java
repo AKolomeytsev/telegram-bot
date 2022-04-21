@@ -14,8 +14,8 @@ public class TelegramBotApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TelegramBotApplication.class, args);
-		TelegramBot bot = new TelegramBotConfiguration().telegramBot();
-		TelegramBotUpdatesListener listener = new TelegramBotUpdatesListener();
+		TelegramBot botT = new TelegramBotConfiguration().telegramBot();
+		TelegramBotUpdatesListener listenerT = new TelegramBotUpdatesListener();
 
 
 	}
